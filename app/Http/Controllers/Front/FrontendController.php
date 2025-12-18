@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\Banner;
+use App\Models\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index() {
-        return view('frontend.pages.index');
+        $banners=Banner::all();
+        return view('frontend.pages.index', compact('banners'));
     }
 
      public function About() {
-        return view('frontend.pages.about');
+        $abouts= About::all();
+        return view('frontend.pages.about', compact('abouts'));
     }
 
       public function Service() {

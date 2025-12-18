@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Slider')
+@section('title', 'Banner')
 
 @section('admin_content')
 <div class="pc-container">
@@ -11,7 +11,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-sm-auto">
                         <div class="page-header-title">
-                            <h5 class="mb-0">Slider</h5>
+                            <h5 class="mb-0">Banner</h5>
                         </div>
                     </div>
                     <div class="col-sm-auto">
@@ -31,7 +31,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header table-card-header">
-                        <h5>All Sliders List</h5>
+                        <h5>All Banner List</h5>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -39,9 +39,8 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Heading Text</th>
-                                        <th>Caption Text</th>
-                                        <th>Video</th>
+                                        <th>Banner Title</th>
+                                        <th>Banner Subtitle</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -51,9 +50,8 @@
                                 <tfoot>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Heading Text</th>
-                                        <th>Caption Text</th>
-                                        <th>Video</th>
+                                        <th>Banner Title</th>
+                                        <th>Banner Subtitle</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -72,29 +70,24 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title h4" id="myLargeModalLabel">Add New Slider</h5>
+                <h5 class="modal-title h4" id="myLargeModalLabel">Add New Banner</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('slider.store') }}" method="post" id="add-form" enctype="multipart/form-data">
+            <form action="{{ route('banner.store') }}" method="post" id="add-form">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="heading_text" class="col-form-label pt-0">Heading Text<sup class="text-size-20 top-1">*</sup></label>
-                        <input type="text" class="form-control" id="heading_text" name="heading_text" required>
+                        <label for="banner_title" class="col-form-label pt-0">Banner Title<sup class="text-size-20 top-1">*</sup></label>
+                        <input type="text" class="form-control" id="banner_title" name="banner_title" required>
                         <small id="emailHelp" class="form-text text-muted">This is your Slider Heading Text</small>
                     </div>
 
-                    <div class="form-group">
-                        <label for="caption_text" class="col-form-label pt-0">Caption Text<sup class="text-size-20 top-1">*</sup></label>
-                        <input type="text" class="form-control" id="caption_text" name="caption_text" required>
-                        <small id="emailHelp" class="form-text text-muted">This is your Slider Caption Text</small>
+                       <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="form-label">Banner Subtitle</label>
+                        <textarea class="form-control textarea" name="banner_subtitle" id="summernote" rows="4" >{{old('banner_subtitle')}}</textarea> 
                     </div>
-
-                    <div class="form-group">
-                        <label for="video_url" class="col-form-label pt-0">Video URL<sup class="text-size-20 top-1">*</sup></label>
-                        <input type="file" class="form-control" name="video_url" accept="video/*">
-                        <small id="videoHelp" class="form-text text-muted">Upload a video file (mp4, mov, ogg, qt)</small>
-                    </div>
+                </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -110,7 +103,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Slider</h5>
+                <h5 class="modal-title" id="editModalLabel">Edit Banner</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -123,16 +116,15 @@
 <!-- Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function slider(){
+    $(function banner(){
         var table = $('.ytable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('slider.index') }}",
+            ajax: "{{ route('banner.index') }}",
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
-                { data: 'heading_text', name: 'heading_text' },
-                { data: 'caption_text', name: 'caption_text' },
-                { data: 'video_url', name: 'video_url' },
+                { data: 'banner_title', name: 'banner_title' },
+                { data: 'banner_subtitle', name: 'banner_subtitle' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
         });
@@ -141,7 +133,7 @@
     // For Edit Slider
     $('body').on('click', '.edit', function() {
         let id = $(this).data('id');
-        $.get("slider/" + id + "/edit", function(data) {
+        $.get("banner/" + id + "/edit", function(data) {
             $('.modal-body').html(data);
         });
     });

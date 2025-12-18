@@ -50,20 +50,20 @@
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
                     <ul class="pc-submenu">
-                        {{-- @can('view about')
+                        @can('view about')
                             <li class="pc-item"><a class="pc-link" href="{{ route('about.index') }}">About us</a></li>
                         @endcan
 
-                        @can('view slider')
+                        {{-- @can('view slider')
                             <li class="pc-item"><a class="pc-link" href="{{ route('slider.index') }}">Slider Info</a></li>
-                        @endcan
-                        @can('view choose_us')
+                        @endcan --}}
+                        {{-- @can('view choose_us')
                             <li class="pc-item"><a class="pc-link" href="{{ route('choose-us.index') }}">Why choose Us</a></li>
-                        @endcan
-                        @can('view contact_messages')
+                        @endcan --}}
+                        {{-- @can('view contact_messages')
                             <li class="pc-item"><a class="pc-link" href="{{ route('contactus.index') }}">Contact US</a></li>
-                        @endcan
-                        @can('view faq')
+                        @endcan --}}
+                        {{-- @can('view faq')
                             <li class="pc-item"><a class="pc-link" href="{{ route('faq.index') }}">FAQ</a></li>
                         @endcan --}}
                     </ul>
@@ -71,26 +71,26 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon"><i class="ti ti-book"></i></span>
-                        <span class="pc-mtext">Manage Product</span>
+                        <span class="pc-mtext">Manage site</span>
                         <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
                     </a>
 
                     <ul class="pc-submenu">
-                        {{-- @can('view product')
+                        
                             <li class="pc-item"><a class="pc-link"
-                                href="{{route('product.index')}}">product</a>
+                                href="{{route('banner.index')}}">Banner</a>
+                            </li>
+                    
+                         {{-- @can('view about')
+                            <li class="pc-item"><a class="pc-link"
+                                href="{{route('abouts.index')}}">Categories</a>
                             </li>
                         @endcan --}}
-                        {{-- @can('view category')
-                            <li class="pc-item"><a class="pc-link"
-                                href="{{route('category.index')}}">Categories</a>
-                            </li>
-                        @endcan
-                        @can('view subcategory')
+                        {{-- @can('view subcategory')
                             <li class="pc-item"><a class="pc-link"
                                 href="{{route('subcategory.index')}}">Subcategories</a>
                             </li>
-                        @endcan --}}
+                        @endcan  --}}
                         {{-- @can('view childcategory')
                             <li class="pc-item"><a class="pc-link"
                                 href="{{route('childcategory.index')}}">Childcategories</a>

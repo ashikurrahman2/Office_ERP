@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('facts', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('icon_class');
-            $table->string('count_number');
-            $table->string('title');
+            $table->string('banner_title')->nullable();
+            $table->string('banner_subtitle')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('facts');
+        Schema::dropIfExists('banners');
     }
 };

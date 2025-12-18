@@ -38,6 +38,8 @@
                                         <th>SL</th>
                                         <th>Heading</th>
                                         <th>Subheading</th>
+                                            <th>Aproach</th>
+                                        <th>Responsibility</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -48,6 +50,8 @@
                                         <th>SL</th>
                                         <th>Heading</th>
                                         <th>Subheading</th>
+                                        <th>Aproach</th>
+                                        <th>Responsibility</th>
                                         <th>Image</th>
                                         <th>Action</th>
                                     </tr>
@@ -86,6 +90,14 @@
                 <div class="form-group mb-3">
                     <label>Paragraph 2</label>
                     <textarea name="paragraph_2" class="form-control" rows="3" required></textarea>
+                </div>
+                 <div class="form-group mb-3">
+                    <label>Aproach</label>
+                    <textarea name="vision" class="form-control" rows="3" required></textarea>
+                </div>
+                 <div class="form-group mb-3">
+                    <label>Responsibility</label>
+                    <textarea name="resposibility" class="form-control" rows="3" required></textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label>About Image</label>
@@ -126,6 +138,8 @@ $(function () {
             { data: 'DT_RowIndex', name: 'DT_RowIndex' },
             { data: 'heading', name: 'heading' },
             { data: 'subheading', name: 'subheading' },
+            { data: 'resposibility', name: 'resposibility' },
+            { data: 'vision', name: 'vision' },
             { data: 'image', name: 'image' },
             {
                 data: 'action',
@@ -149,17 +163,17 @@ $(function () {
 $(document).on('submit', '#edit-form', function (e) {
     e.preventDefault();
     var form = $(this)[0];
-    var formData = new FormData(form); // ✅ FormData নেওয়া হয়েছে
+    var formData = new FormData(form); 
     var url = $(this).attr('action');
 
     $.ajax({
         url: url,
-        type: 'POST', // PUT এর বদলে POST
+        type: 'POST', 
         data: formData,
         contentType: false,
         processData: false,
         headers: {
-            'X-HTTP-Method-Override': 'PUT' // Laravel এ PUT simulate করা
+            'X-HTTP-Method-Override': 'PUT' 
         },
         success: function (data) {
             if (data.success) {

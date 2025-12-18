@@ -8,7 +8,7 @@
                                     <div class="text-widget">
                                         <div class="about-info">
                                             <div class="image-wrapper">
-                                                <img src="images/d-code-logo-light.svg" alt="" class="img-fluid"/>
+                                                <img src="{{ asset('/') }}frontend/assets/images/d-code-logo-light.svg" alt="" class="img-fluid"/>
                                             </div>
                                         </div>
                                         <div class="newsletter-form style-two align-left">
@@ -39,10 +39,9 @@
                                     <div class="text-widget">
                                         <div class="contact-info theme-two">
                                             <ul>
-                                                <li class="address-field"><label>USA Office</label>49 Uniqe Square D, NY 10003</li>
-                                                <li class="address-field"><label>Australia Office</label>41 Parkes Road, Maude, NSW 2711</li>
-                                                <li class="email-field">info@dcodewebsite.com</li>
-                                                <li class="phone-field">+1 (234) 567-9801</li>
+                                                <li class="address-field"><label>Office</label>{{ $setting->address }}</li>
+                                                <li class="email-field">{{ $setting->main_email }}</li>
+                                                <li class="phone-field">{{ $setting->phone_one }}</li>
                                             </ul>
                                         </div>                                        
                                     </div>
@@ -56,11 +55,10 @@
                                     <div class="text-widget">
                                         <div class="footer-nav">
                                             <ul>
-                                                <li><a href="#">Trust & Safety</a></li>
-                                                <li><a href="#">Cookie Policy</a></li>
-                                                <li><a href="#">Contact Us</a></li>
-                                                <li><a href="#">Privacy Policy</a></li>
-                                                <li><a href="#">Terms of Service</a></li>
+                                                <li><a href="{{ route('abouts') }}">About Us</a></li>
+                                                <li><a href="{{ route('ser') }}">Services</a></li>
+                                                <li><a href="{{ route('com') }}">Contact Us</a></li>
+                                                <li><a href="{{ route('cer') }}">Careers</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -70,7 +68,7 @@
                     </div>
                     <div class="copyright-bar style-dark">
                         <div class="copyright-text text-center">
-                            © Copyright DCode 2025. Made with <i class="fas fa-heart"></i> by <a href="https://stylox.design/" target="_blank"><strong>StyloxDesign</strong></a>.
+                            © Copyright DCode {{ date('Y') }}. Made with <i class="fas fa-heart"></i> by <a href="https://stylox.design/" target="_blank"><strong>StyloxDesign</strong></a>.
                         </div>
                     </div>
                 </div>

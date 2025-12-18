@@ -20,17 +20,19 @@
                                 </div>
                             </div><!--* End Col -->
                             <div class="col-lg-6">
+                                @foreach($banners as $banner)
                                 <div class="heading-wrapper with-separator wow fadeInLeft" data-wow-delay="0.2s">
-                                    <h1>How schools benefit from Dcode <span>ERP Systems</span></h1>
+                                    <h1>{{ $banner->banner_title }} <span>ERP Systems</span></h1>
                                 </div>
                                 <div class="text-wrapper wow fadeInLeft" data-wow-delay="0.4s">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales dictum viverra. Nam gravida dignissim eros. Vivamus congue erat ante, volutpat dictum neque dignissim eget.</p>
+                                    <p>{{ $banner->banner_subtitle }}</p>
                                 </div>
                                 <div class="btn-wrapper wow fadeInUp" data-wow-delay="0.4s">
                                     <a class="btn btn-primary" href="#">Get started</a>
                                     <a class="btn btn-outline-primary" href="#"><i class="fas fa-play-circle"></i>Watch Video</a>
                                 </div>
-                            </div><!--* End Col -->
+                            </div>
+                            @endforeach
                         </div><!--* End Row -->
                     </div>
                 </div>
@@ -124,7 +126,7 @@
                         <div class="row clearfix align-items-center">
                             <div class="col-lg-6">
                                 <div class="image-wrapper">
-                                    <img src="images/default-color/erp-mobileapp-features.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('/') }}frontend/assets/images/default-color/erp-mobileapp-features.png" alt="" class="img-fluid">
                                 </div>
                             </div><!--* End Col -->
                             <div class="col-lg-6">

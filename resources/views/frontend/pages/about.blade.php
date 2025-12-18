@@ -19,25 +19,24 @@
                     </div>
                 </div> --}}
                 <!--* Page Header -->
+                @foreach($abouts as $about)
                 <div class="about-section section-padding">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 wow fadeInLeft">
                                 <div class="image-wrapper">
-                                    <img src="{{ asset('/') }}frontend/assets/images/default-color/user-interface-img.png" alt="">
+                                    <img src="{{ asset($about->image) }}" alt="">
                                 </div>
                             </div><!--* End Col -->
                             <div class="col-lg-6">
                                 <div class="heading-wrapper with-separator">
                                     <span class="sub-title">About Dcode</span>
-                                    <h2 class="h1">Why the best choose to <span>work with us</span></h2>
+                                    <h2 class="h1">{{ $about->heading }} <span>work with us</span></h2>
                                 </div><!--* End Heading -->
                                 <div class="text-wrapper">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales dictum viverra. Nam gravida dignissim eros. Vivamus congue erat ante, volutpat dictum neque dignissim eget.</p>
+                                    <p>{{ $about->subheading }}</p>
                                     <ul class="list-style-one">
-                                        <li>Nullam placerat nunc id ornare convallis.</li>
-                                        <li>Mauris id dui aliquam, dapibus felis vel, iaculis risus.</li>
-                                        <li>Integer dapibus lorem in nisl hendrerit dictum.</li>
+                                        <li>{{ $about->paragraph_1 }}</li>
                                     </ul>
                                 </div>
                                 <div class="btn-wrapper">
@@ -47,7 +46,9 @@
                         </div><!--* End Row -->
                     </div>
                 </div>
+                @endforeach
                 <!--* About Section -->
+                @foreach($abouts as $about)
                 <div class="section-padding light-gradient-bg pb-0">
                     <div class="container">
                         <div class="row">
@@ -55,12 +56,12 @@
                                 <div class="features-block theme-one wow fadeInLeft">
                                     <div class="inner-box">
                                         <div class="icon">
-                                            <img class="normal" src="images/default-color/icon-5.svg" alt="">
-                                            <img class="hover" src="images/default-color/icon-5-light.svg" alt="">
+                                            <img class="normal" src="{{ asset('/') }}frontend/assets/images/default-color/icon-5.svg" alt="">
+                                            <img class="hover" src="{{ asset('/') }}frontend/assets/images/default-color/icon-5-light.svg" alt="">
                                         </div>
                                         <div class="text">
                                             <h4>Our Responsibility</h4>    
-                                            <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer citation ullamco laboris.</p>
+                                            <p>{{ $about->resposibility }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -69,12 +70,12 @@
                                 <div class="features-block theme-one wow fadeInUp">
                                     <div class="inner-box">
                                         <div class="icon">
-                                            <img class="normal" src="images/default-color/icon-5.svg" alt="">
-                                            <img class="hover" src="images/default-color/icon-5-light.svg" alt="">
+                                            <img class="normal" src="{{ asset('/') }}frontend/assets/images/default-color/icon-5.svg" alt="">
+                                            <img class="hover" src="{{ asset('/') }}frontend/assets/images/default-color/icon-5-light.svg" alt="">
                                         </div>
                                         <div class="text">
                                             <h4>Our Approach</h4>    
-                                            <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer citation ullamco laboris.</p>
+                                            <p>{{ $about->vision }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -88,14 +89,17 @@
                                         </div>
                                         <div class="text">
                                             <h4>Our Mission, Vission</h4>    
-                                            <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer citation ullamco laboris.</p>
+                                            <p>{{ $about->paragraph_2 }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div><!--* End Col -->
                         </div><!--* End Row -->
                     </div>
-                </div><!--* Our Approach Section -->
+                </div>
+                @endforeach
+                <!--* Our Approach Section -->
+                    
                 <div class="our-team section-padding">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -113,7 +117,7 @@
                                 <div class="st-team-member theme-one wow fadeInUp">
                                     <div class="team-member-wrapper">
                                         <div class="st-team-image">
-                                            <img src="images/team-3-rect.jpg" alt="">
+                                            <img src="{{ asset('/') }}frontend/assets/images/team-3-rect.jpg" alt="">
                                             <div class="team-social">
                                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                                                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -123,59 +127,6 @@
                                         <div class="st-team-member-detail">
                                             <h3 class="member-name">Dan Kaul</h3>
                                             <span class="member-position">CEO & Founder</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
-                            <div class="col-lg-3 col-md-6">
-                                <div class="st-team-member theme-one wow fadeInUp" data-wow-delay="0.2s">
-                                    <div class="team-member-wrapper">
-                                        <div class="st-team-image">
-                                            <img src="images/team-4-rect.jpg" alt="">
-                                            <div class="team-social">
-                                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="st-team-member-detail">
-                                            <h3 class="member-name">Andy Sant</h3>
-                                            <span class="member-position">Planer & Manager</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
-                            <div class="col-lg-3 col-md-6">
-                                <div class="st-team-member theme-one wow fadeInUp" data-wow-delay="0.4s">
-                                    <div class="team-member-wrapper">
-                                        <div class="st-team-image">
-                                            <img src="images/team-5-rect.jpg" alt="">
-                                            <div class="team-social">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="st-team-member-detail">
-                                            <h3 class="member-name">Saru Matt</h3>
-                                            <span class="member-position">Sales Head</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
-                            <div class="col-lg-3 col-md-6">
-                                <div class="st-team-member theme-one wow fadeInUp" data-wow-delay="0.6s">
-                                    <div class="team-member-wrapper">
-                                        <div class="st-team-image">
-                                            <img src="images/team-2-rect.jpg" alt="">
-                                            <div class="team-social">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="st-team-member-detail">
-                                            <h3 class="member-name">Shreyn S</h3>
-                                            <span class="member-position">Analytical Head</span>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +144,7 @@
                             </div><!--* End Col -->
                             <div class="col-lg-5">
                                 <div class="call-to-action-btn text-right i-text-center">
-                                    <a href="#" class="btn btn-primary btn-light btn-large">Contact Us Now!</a>
+                                    <a href="{{ route('com') }}" class="btn btn-primary btn-light btn-large">Contact Us Now!</a>
                                 </div>
                             </div><!--* End Col -->
                         </div><!--* End Row -->
