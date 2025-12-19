@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 // use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use App\Models\Team;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
+// use Illuminate\Routing\Controller as BaseController;
 use Flasher\Toastr\Prime\ToastrInterface;
 use Yajra\DataTables\DataTables;
 
@@ -46,7 +47,7 @@ class TeamController extends Controller
                     if (auth('admin')->user()->can('delete about')) {
                         $actionBtn .= '<button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
                             <i class="fa fa-trash"></i></button>
-                            <form id="delete-form-' . $row->id . '" action="' . route('about.destroy', $row->id) . '" method="POST" style="display: none;">
+                            <form id="delete-form-' . $row->id . '" action="' . route('team.destroy', $row->id) . '" method="POST" style="display: none;">
                                 ' . csrf_field() . method_field('DELETE') . '
                             </form>';
                     }
@@ -57,7 +58,7 @@ class TeamController extends Controller
                 ->make(true);
         }
 
-        return view('admin.pages.about.index');
+        return view('admin.pages.team.index');
     }
 
     /**
@@ -74,11 +75,11 @@ class TeamController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-            'mem_name'      => 'required|string|max:255',
+            'mem_name'        => 'required|string|max:255',
             'mem_design'      => 'required|string|max:500',
-            'mem_social'             => 'required|string|max:500',
-            'mem_social_link'   => 'required|string|max:255',
-            'mem_img'        => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'mem_social'      => 'required|string|max:500',
+            'mem_social_link' => 'required|string|max:255',
+            'mem_img'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         Team::newTeam($request);
@@ -93,7 +94,7 @@ class TeamController extends Controller
      */
       public function edit(Team $teams)
     {
-        return view('admin.pages.about.edit', compact('teams'));
+        return view('admin.pages.team.edit', compact('teams'));
     }
 
     /**
@@ -102,13 +103,11 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'heading'      => 'required|string|max:255',
-            'subheading'   => 'required|string|max:255',
-                   'resposibility'      => 'required|string|max:500',
-            'vision'             => 'required|string|max:500',
-            'image'        => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'paragraph_1'  => 'required|string',
-            'paragraph_2'  => 'required|string',
+           'mem_name'        => 'required|string|max:255',
+            'mem_design'      => 'required|string|max:500',
+            'mem_social'      => 'required|string|max:500',
+            'mem_social_link' => 'required|string|max:255',
+            'mem_img'         => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
          Team::updateTeam($request, $id);

@@ -16,9 +16,9 @@
                     </div>
                     <div class="col-sm-auto">
                         <ul class="breadcrumb">
-                            @can('create service')
+                            {{-- @can('create service') --}}
                                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">+ Add New</button>
-                            @endcan
+                            {{-- @endcan --}}
                         </ul>
                     </div>
                 </div>
@@ -40,9 +40,8 @@
                                     <tr>
                                         <th>SL</th>
                                         <th>Title</th>
+                                        <th>Sub Title</th>
                                         <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -51,11 +50,10 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>SL</th>
+                                           <th>SL</th>
                                         <th>Title</th>
+                                        <th>Sub Title</th>
                                         <th>Description</th>
-                                        <th>Image</th>
-                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </tfoot>
@@ -81,23 +79,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Service Title <span class="text-danger">*</span></label>
-                        <input type="text" name="title" class="form-control" required>
+                        <label>Title <span class="text-danger">*</span></label>
+                        <input type="text" name="service_title" class="form-control" required>
+                    </div>
+                      <div class="form-group">
+                        <label>Sub Title<span class="text-danger">*</span></label>
+                        <textarea name="service_subtitle" class="form-control" rows="4" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Service Description <span class="text-danger">*</span></label>
-                        <textarea name="description" class="form-control" rows="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Image <span class="text-danger">*</span></label>
-                        <input type="file" name="image" class="form-control" accept="image/*" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <select name="status" class="form-control">
-                            <option value="1">Show</option>
-                            <option value="0">Hide</option>
-                        </select>
+                        <label>Description<span class="text-danger">*</span></label>
+                        <textarea name="service_description" class="form-control" rows="4" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -141,10 +132,9 @@
             },
             columns: [
                 { data: 'DT_RowIndex', name: 'DT_RowIndex' },
-                { data: 'title', name: 'title' },
-                { data: 'description', name: 'description' },
-                { data: 'image', name: 'image', orderable: false, searchable: false },
-                { data: 'status', name: 'status' },
+                { data: 'service_title', name: 'service_title' },
+                { data: 'service_subtitle', name: 'service_subtitle' },
+                { data: 'service_description', name: 'service_description' },
                 { data: 'action', name: 'action', orderable: false, searchable: false }
             ]
         });

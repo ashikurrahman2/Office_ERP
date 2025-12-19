@@ -54,12 +54,12 @@
                             <li class="pc-item"><a class="pc-link" href="{{ route('about.index') }}">About us</a></li>
                         @endcan
 
-                        {{-- @can('view slider')
-                            <li class="pc-item"><a class="pc-link" href="{{ route('slider.index') }}">Slider Info</a></li>
-                        @endcan --}}
-                        {{-- @can('view choose_us')
-                            <li class="pc-item"><a class="pc-link" href="{{ route('choose-us.index') }}">Why choose Us</a></li>
-                        @endcan --}}
+                        @can('view slider')
+                            <li class="pc-item"><a class="pc-link" href="{{ route('team.index') }}">Team Info</a></li>
+                        @endcan
+                        @can('view choose_us')
+                            <li class="pc-item"><a class="pc-link" href="{{ route('service.index') }}">Service</a></li>
+                        @endcan
                         {{-- @can('view contact_messages')
                             <li class="pc-item"><a class="pc-link" href="{{ route('contactus.index') }}">Contact US</a></li>
                         @endcan --}}

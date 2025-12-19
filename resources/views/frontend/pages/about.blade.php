@@ -113,79 +113,54 @@
                             </div><!--* End Col -->
                         </div><!--* End Row -->
                         <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="st-team-member theme-one wow fadeInUp">
-                                    <div class="team-member-wrapper">
-                                        <div class="st-team-image">
-                                            <img src="{{ asset('/') }}frontend/assets/images/team-3-rect.jpg" alt="">
-                                            <div class="team-social">
-                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="st-team-member-detail">
-                                            <h3 class="member-name">Dan Kaul</h3>
-                                            <span class="member-position">CEO & Founder</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
+                        
+                       @foreach($teams as $team)
+    <div class="col-lg-3 col-md-6">
+        <div class="st-team-member theme-one wow fadeInUp">
+            <div class="team-member-wrapper">
+                <div class="st-team-image">
+                    <img src="{{ asset($team->mem_img) }}" alt="{{ $team->mem_name }}">
+                    <div class="team-social">
+                        @php
+                            $socials = array_map('trim', explode(',', $team->mem_social));
+                            $links = array_map('trim', explode(',', $team->mem_social_link));
+                            
+                            // Icon mapping for better control
+                            $iconMap = [
+                                'facebook' => 'fa-facebook-f',
+                                'linkedin' => 'fa-linkedin-in',
+                                'twitter' => 'fa-twitter',
+                                'instagram' => 'fa-instagram',
+                                'youtube' => 'fa-youtube',
+                            ];
+                        @endphp
+                        
+                        @foreach($socials as $index => $social)
+                            @if(isset($links[$index]) && !empty($links[$index]))
+                                @php
+                                    $socialLower = strtolower($social);
+                                    $icon = $iconMap[$socialLower] ?? 'fa-' . $socialLower;
+                                @endphp
+                                <a href="{{ $links[$index] }}" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab {{ $icon }}"></i>
+                                </a>
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+                <div class="st-team-member-detail">
+                    <h3 class="member-name">{{ $team->mem_name }}</h3>
+                    <span class="member-position">{{ $team->mem_design }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
                         </div><!--* End Row -->
                     </div>
                 </div>
-                <div class="cta-section section-padding style-dark">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-7">
-                                <div class="call-to-action-content i-text-center">
-                                    <h2 class="h1">Get a personalized demo, instantly. <span class="special-fonts">Schedule a demo</span></h2>
-                                </div>
-                            </div><!--* End Col -->
-                            <div class="col-lg-5">
-                                <div class="call-to-action-btn text-right i-text-center">
-                                    <a href="{{ route('com') }}" class="btn btn-primary btn-light btn-large">Contact Us Now!</a>
-                                </div>
-                            </div><!--* End Col -->
-                        </div><!--* End Row -->
-                    </div>
-                </div>
+           
                 <!--* Call to Action Section -->
-                <div class="companies-section section-padding">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="heading-wrapper text-center with-separator">
-                                    <h2 class="h1">Trusted by many <span>companies</span></h2>
-                                    <div class="lead-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus mi id elit gravida, quis tincidunt purus fringilla. Aenean convallis a neque non pellentesque.</p>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
-                        </div><!--* End Row -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="companies-logo">
-                                    <div class="item">
-                                        <div class="logo-wrapper"><img src="images/company-logo-1.png" alt=""></div>    
-                                    </div>
-                                    <div class="item">
-                                        <div class="logo-wrapper"><img src="images/company-logo-2.png" alt=""></div>    
-                                    </div>
-                                    <div class="item">
-                                        <div class="logo-wrapper"><img src="images/company-logo-3.png" alt=""></div>   
-                                    </div>
-                                    <div class="item">
-                                        <div class="logo-wrapper"><img src="images/company-logo-4.png" alt=""></div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="logo-wrapper"><img src="images/company-logo-5.png" alt=""></div>
-                                    </div>
-                                </div>
-                            </div><!--* End Col -->
-                        </div><!--* End Row -->
-                    </div>
-                </div>
                 <!--* companies Section -->
   </div>
 @endsection

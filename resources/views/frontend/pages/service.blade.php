@@ -8,121 +8,28 @@
                 <div class="service-section section-padding">
                     <div class="container">
                         <div class="row clearfix no-gutters dc-features-group">
+                              @foreach($services as $service)
                             <div class="col-lg-4 col-md-6 dc-features-item">
                                 <a href="#">
                                     <div class="dc-features-item-front">
                                         <div class="inner-box">
                                             <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-2.svg" alt="">
+                                                <img class="normal" src="{{ asset('/') }}frontend/assets/images/default-color/icon-2.svg" alt="">
                                             </div>
-                                            <h3 class="dc-features-title">Design & Development</h3>
+                                            <h3 class="dc-features-title">{{ $service->service_title }}</h3>
                                         </div>
                                     </div>
                                     <div class="dc-features-item-hover">
                                         <div class="inner-box">
-                                            <h3 class="dc-features-title">Design & Development</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--* End Col -->
-                            <div class="col-lg-4 col-md-6 dc-features-item">
-                                <a href="#">
-                                    <div class="dc-features-item-front">
-                                        <div class="inner-box">
-                                            <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-20.svg" alt="">
-                                            </div>
-                                            <h3 class="dc-features-title">Management & Marketing</h3>
-                                        </div>
-                                    </div>
-                                    <div class="dc-features-item-hover">
-                                        <div class="inner-box">
-                                            <h3 class="dc-features-title">Management & Marketing</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--* End Col -->
-                            <div class="col-lg-4 col-md-6 dc-features-item">
-                                <a href="#">
-                                    <div class="dc-features-item-front">
-                                        <div class="inner-box">
-                                            <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-4.svg" alt="">
-                                            </div>
-                                            <h3 class="dc-features-title">Stratagy & Research</h3>
-                                        </div>
-                                    </div>
-                                    <div class="dc-features-item-hover">
-                                        <div class="inner-box">
-                                            <h3 class="dc-features-title">Stratagy & Research</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--* End Col -->
-                            <div class="col-lg-4 col-md-6 dc-features-item">
-                                <a href="#">
-                                    <div class="dc-features-item-front">
-                                        <div class="inner-box">
-                                            <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-5.svg" alt="">
-                                            </div>
-                                            <h3 class="dc-features-title">Easy To Use</h3>
-                                        </div>
-                                    </div>
-                                    <div class="dc-features-item-hover">
-                                        <div class="inner-box">
-                                            <h3 class="dc-features-title">Easy To Use</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--* End Col -->
-                            <div class="col-lg-4 col-md-6 dc-features-item">
-                                <a href="#">
-                                    <div class="dc-features-item-front">
-                                        <div class="inner-box">
-                                            <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-19.svg" alt="">
-                                            </div>
-                                            <h3 class="dc-features-title">Daily Reports</h3>
-                                        </div>
-                                    </div>
-                                    <div class="dc-features-item-hover">
-                                        <div class="inner-box">
-                                            <h3 class="dc-features-title">Daily Reports</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--* End Col -->
-                            <div class="col-lg-4 col-md-6 dc-features-item">
-                                <a href="#">
-                                    <div class="dc-features-item-front">
-                                        <div class="inner-box">
-                                            <div class="icon">
-                                                <img class="normal" src="images/default-color/icon-9.svg" alt="">
-                                            </div>
-                                            <h3 class="dc-features-title">Real Time Zone</h3>
-                                        </div>
-                                    </div>
-                                    <div class="dc-features-item-hover">
-                                        <div class="inner-box">
-                                            <h3 class="dc-features-title">Real Time Zone</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut turpis in nunc faucibus cursus id at mauris. Ut sed mi neque. Donec aliquet, urna id accumsan hendrerit.</p>
+                                            <h3 class="dc-features-title">{{ $service->service_title }}</h3>
+                                            <p>{{ $service->service_subtitle }}</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <!--* End Col -->
                         </div>
+                        @endforeach
                         <!--* End Row -->
                     </div>
                 </div>
@@ -169,7 +76,7 @@
                                         <div class="item">
                                             <div class="client-info-wrapper">
                                                 <div class="client-img">
-                                                    <img src="images/team-4-square.jpg" alt="client">
+                                                    <img src="{{ asset('/') }}frontend/assets/images/team-4-square.jpg" alt="client">
                                                 </div>
                                                 <div class="client-info">
                                                     <h5>Andy Sant</h5>
