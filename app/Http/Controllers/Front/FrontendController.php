@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Models\Banner;
 use App\Models\About;
+use App\Models\Career;
 use App\Models\Team;
 use App\Models\Service;
+use App\Models\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,11 +26,13 @@ class FrontendController extends Controller
 
       public function Service() {
         $services = Service::all();
-        return view('frontend.pages.service', compact('services'));
+        $testimonials= Client::all(); 
+        return view('frontend.pages.service', compact('services','testimonials'));
     }
 
          public function Career() {
-        return view('frontend.pages.career');
+            $features = Career::all();
+        return view('frontend.pages.career', compact('features'));
     }
 
          public function Job() {

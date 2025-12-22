@@ -60,12 +60,12 @@
                         @can('view choose_us')
                             <li class="pc-item"><a class="pc-link" href="{{ route('service.index') }}">Service</a></li>
                         @endcan
-                        {{-- @can('view contact_messages')
-                            <li class="pc-item"><a class="pc-link" href="{{ route('contactus.index') }}">Contact US</a></li>
-                        @endcan --}}
-                        {{-- @can('view faq')
-                            <li class="pc-item"><a class="pc-link" href="{{ route('faq.index') }}">FAQ</a></li>
-                        @endcan --}}
+                        @can('view contact_messages')
+                            <li class="pc-item"><a class="pc-link" href="{{ route('client.index') }}">Client feedback</a></li>
+                        @endcan
+                        @can('view faq')
+                            <li class="pc-item"><a class="pc-link" href="{{ route('career.index') }}">Career</a></li>
+                        @endcan
                     </ul>
                 </li>
                 <li class="pc-item pc-hasmenu">
