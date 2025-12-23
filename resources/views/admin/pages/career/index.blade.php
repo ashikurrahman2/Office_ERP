@@ -93,12 +93,10 @@
                     </div>
                 </div>
                  <div class="form-group">
-    <label for="position" class="col-form-label pt-0">Position/Department<sup class="text-size-20 top-1">*</sup></label>
+    <label for="position" class="col-form-label pt-0">Position<sup class="text-size-20 top-1">*</sup></label>
     <select class="form-control" id="position" name="position" required>
         <option value="">-- Select Position/Department --</option>
-        <option value="Software Development">Software Development</option>
-        <option value="Web Development">Web Development</option>
-        <option value="Mobile App Development">Mobile App Development</option>
+        <option value="Software Development">Software Engineer</option>
         <option value="UI/UX Design">UI/UX Design</option>
         <option value="Graphic Design">Graphic Design</option>
         <option value="Quality Assurance (QA)">Quality Assurance (QA)</option>

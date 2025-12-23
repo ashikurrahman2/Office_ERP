@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\CareerController;
+use App\Http\Controllers\Admin\RequirementController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PageController;
@@ -59,6 +60,7 @@ Route::prefix('admin')->middleware(['auth:admin', 'role:super-admin|admin'])->gr
     Route::resource('service', ServiceController::class);
     Route::resource('client', ClientController::class);
     Route::resource('career', CareerController::class);
+    Route::resource('req', RequirementController::class);
     
 });
 

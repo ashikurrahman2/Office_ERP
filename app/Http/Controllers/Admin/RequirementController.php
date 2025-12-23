@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Flasher\Toastr\Prime\ToastrInterface;
-use App\Models\Career;
+use App\Models\Requirement;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
-class CareerController extends Controller
+class RequirementController extends Controller
 {
-
-         protected $toastr;
+       protected $toastr;
 
     public function __construct(ToastrInterface $toastr)
     {
@@ -23,9 +22,9 @@ class CareerController extends Controller
    public function index(Request $request)
     {
         if ($request->ajax()) {
-            $careers = Career::all();
+            $banners = Requirement::all();
 
-            return DataTables::of($careers)
+            return DataTables::of($banners)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
                     $actionbtn = '';
@@ -42,7 +41,7 @@ class CareerController extends Controller
                         $actionbtn .= '<button class="btn btn-danger btn-sm delete" data-id="' . $row->id . '">
                                             <i class="fa fa-trash"></i>
                                         </button>
-                                        <form id="delete-form-' . $row->id . '" action="' . route('career.destroy', $row->id) . '" method="POST" style="display: none;">
+                                        <form id="delete-form-' . $row->id . '" action="' . route('req.destroy', $row->id) . '" method="POST" style="display: none;">
                                             ' . csrf_field() . '
                                             ' . method_field('DELETE') . '
                                         </form>';
@@ -54,7 +53,7 @@ class CareerController extends Controller
                 ->make(true);
         }
 
-        return view('admin.pages.career.index');
+        return view('admin.pages.banner.index');
     }
 
     /**
@@ -70,29 +69,25 @@ class CareerController extends Controller
      */
     public function store(Request $request)
     {
-          $request->validate([
+               $request->validate([
 
-            'cer_title' => 'required|string|max:255',
-            'cer_subtitle' => 'required|string|max:255',
-            'position' => 'required|string|max:255',
-            'position_des' => 'required|string|max:500',
+            'aditional_requirement' => 'required|string|max:255',
+            'requirement' => 'required|string|max:255',
+            'benifit' => 'required|string|max:255',
         ]);
-
             //  Remove HTML tag
             $request->merge([
-                'cer_subtitle' => strip_tags($request->cer_subtitle),
-                'position_des' => strip_tags($request->position_des),
+                'aditional_requirement' => strip_tags($request->aditional_requirement),
             ]);
-
-        Career::newCareer($request);
-        $this->toastr->success('Career info created successfully!');
+             Requirement::newReq($request);
+        $this->toastr->success('Requirement info created successfully!');
         return back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Career $careers)
+    public function show(Requirement $req)
     {
         //
     }
@@ -100,25 +95,24 @@ class CareerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-      public function edit(Career $career)
+    public function edit(Requirement $req)
     {
-        return view('admin.pages.career.edit', compact('career'));
+        return view('admin.pages.banner.edit', compact('req'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Career $career)
+    public function update(Request $request, Requirement $req)
     {
-         $request->validate([
-
-              'cer_title' => 'required|string|max:255',
-            'cer_subtitle' => 'required|string|max:255',
-            'position' => 'required|string|max:255',
-            'position_des' => 'required|string|max:500',
+        
+               $request->validate([
+            'aditional_requirement' => 'required|string|max:255',
+            'requirement' => 'required|string|max:255',
+            'benifit' => 'required|string|max:255',
         ]);
-        Career::updateCareer($request, $career);
-        $this->toastr->success('Career updated successfully!');
+         Requirement::updateReq($request, $req);
+        $this->toastr->success('Requirement updated successfully!');
         return back();
     }
 
@@ -127,10 +121,10 @@ class CareerController extends Controller
      */
     public function destroy($id)
     {
-        $careers = Career::findOrFail($id);
-        $careers->delete();
+         $req = Requirement::findOrFail($id);
+        $req->delete();
 
-        $this->toastr->success('careers Deleted successfully!');
+        $this->toastr->success('Requirement Deleted successfully!');
         return back();
     }
 }
