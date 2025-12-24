@@ -78,7 +78,7 @@
                     <ul class="pc-submenu">
                         
                             <li class="pc-item"><a class="pc-link"
-                                href="{{route('banner.index')}}">Banner</a>
+                                href="{{route('req.index')}}">Job Requirement</a>
                             </li>
                     
                          {{-- @can('view about')

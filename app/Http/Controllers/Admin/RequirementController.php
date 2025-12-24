@@ -53,7 +53,7 @@ class RequirementController extends Controller
                 ->make(true);
         }
 
-        return view('admin.pages.banner.index');
+        return view('admin.pages.jobrequirement.index');
     }
 
     /**
@@ -71,7 +71,7 @@ class RequirementController extends Controller
     {
                $request->validate([
 
-            'aditional_requirement' => 'required|string|max:255',
+            'aditional_requirement' => 'string|max:255',
             'requirement' => 'required|string|max:255',
             'benifit' => 'required|string|max:255',
         ]);
@@ -97,7 +97,7 @@ class RequirementController extends Controller
      */
     public function edit(Requirement $req)
     {
-        return view('admin.pages.banner.edit', compact('req'));
+        return view('admin.pages.jobrequirement.edit', compact('req'));
     }
 
     /**
@@ -107,7 +107,7 @@ class RequirementController extends Controller
     {
         
                $request->validate([
-            'aditional_requirement' => 'required|string|max:255',
+            'aditional_requirement' => 'string|max:255',
             'requirement' => 'required|string|max:255',
             'benifit' => 'required|string|max:255',
         ]);
